@@ -8,16 +8,21 @@ export default class ClockPorClass extends Component {
         isClockHidden: false
       }
     
-      hideClock = () => {
-        this.setState({isClockHidden: true})
+      hideClock = (param) => {
+        this.setState({isClockHidden: param})
       }
       render() {
         if(this.state.isClockHidden){
-          return <h1></h1>
+          return (
+            <div className="App">
+                <button onClick={()=>this.hideClock(false)}>Show Clock</button>
+                <h1>Clock Class Component</h1>
+            </div>
+          );
         }
         return (
           <div className="App">
-            <button onClick={this.hideClock}>Hide Clock</button>
+            <button onClick={()=>this.hideClock(true)}>Hide Clock</button>
             
             <Clock />
           </div>
